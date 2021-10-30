@@ -3,7 +3,6 @@
 package com.wiley.mapping;
 
 import com.google.gson.*;
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.gsonfire.GsonFireBuilder;
@@ -12,11 +11,6 @@ import okio.ByteString;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.ParsePosition;
-import java.util.Date;
-import java.util.Map;
 
 public class JSON {
     private Gson gson;

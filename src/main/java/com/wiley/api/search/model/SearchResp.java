@@ -29,12 +29,4 @@ public class SearchResp {
     public List<Page> getPages() {
         return pages;
     }
-
-    public boolean isShowSeeAllProducts() {
-        return showSeeAllProducts;
-    }
-
-    public boolean isShowSeeAllPages() {
-        return showSeeAllPages;
-    }
 }

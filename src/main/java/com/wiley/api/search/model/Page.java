@@ -24,23 +24,8 @@ public class Page {
     @SerializedName(SERIALIZED_NAME_CONTENT)
     private String content;
 
-    public String getId() {
-        return id;
-    }
-
-    public double getBoost() {
-        return boost;
-    }
-
     public String getTitle() {
         return title;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public String getContent() {
-        return content;
-    }
 }

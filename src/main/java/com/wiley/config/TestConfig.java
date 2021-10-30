@@ -24,7 +24,7 @@ public class TestConfig {
     public static ApiClient wileyApiClient;
     public static ApiClient httpBinApiClient;
     public static String WILEY_API_URL = "https://www.wiley.com/en-us";
-    public static String HTTPBIN_API_URL = "https://httpbin.org";
+    public static String HTTP_BIN_API_URL = "https://httpbin.org";
     private static List<Filter> filters = new ArrayList<>();
 
     static {
@@ -47,7 +47,7 @@ public class TestConfig {
      */
     private static void initHttpBinApi() {
         httpBinApiClient = ApiClient.api(ApiClient.Config.apiConfig().reqSpecSupplier(() ->
-                new RequestSpecBuilder().addFilters(filters).setConfig(RestAssuredConfig.config().decoderConfig(decoderConfig().contentDecoders(DEFLATE)).objectMapperConfig(ObjectMapperConfig.objectMapperConfig().defaultObjectMapperType(ObjectMapperType.GSON))).setBaseUri(HTTPBIN_API_URL).setContentType(ContentType.JSON)));
+                new RequestSpecBuilder().addFilters(filters).setConfig(RestAssuredConfig.config().decoderConfig(decoderConfig().contentDecoders(DEFLATE)).objectMapperConfig(ObjectMapperConfig.objectMapperConfig().defaultObjectMapperType(ObjectMapperType.GSON))).setBaseUri(HTTP_BIN_API_URL).setContentType(ContentType.JSON)));
     }
 
     private static void initFilters(){
