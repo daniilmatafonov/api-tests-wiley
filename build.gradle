@@ -20,8 +20,7 @@ def allureVersion = "2.16.0",
     gsonFireVersion = "1.8.5",
     gsonVersion = "2.8.6",
     restAssuredVersion = "4.4.0",
-    junitVersion = "5.8.1",
-    ownerVersion = "1.0.12"
+    junitVersion = "5.8.1"
 
 allure {
     version = "${allureVersion}"
@@ -35,7 +34,6 @@ dependencies {
     implementation "com.google.code.gson:gson:$gsonVersion"
     implementation "io.gsonfire:gson-fire:$gsonFireVersion"
     implementation "io.rest-assured:rest-assured:$restAssuredVersion"
-    implementation "org.aeonbits.owner:owner:$ownerVersion"
     implementation "io.qameta.allure:allure-rest-assured:$allureVersion"
     testImplementation(
             "io.qameta.allure:allure-rest-assured:$allureVersion",
