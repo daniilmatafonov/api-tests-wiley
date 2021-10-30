@@ -1,6 +1,7 @@
 
 package com.wiley.http.client;
 
+import com.wiley.api.search.api.HttpBinApi;
 import com.wiley.api.search.api.WileyApi;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -27,8 +28,16 @@ public class ApiClient {
      * Get WileyApi
      * @return WileyApi
      */
-    public WileyApi search() {
+    public WileyApi wileyApi() {
         return WileyApi.search(config.reqSpecSupplier);
+    }
+
+    /**
+     * Get HttpBin
+     * @return HttpBin
+     */
+    public HttpBinApi httpBinApi() {
+        return HttpBinApi.httpBin(config.reqSpecSupplier);
     }
 
     /**

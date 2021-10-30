@@ -28,7 +28,7 @@ public class WileySearchTest {
      */
     @Test
     public void checkRespContainsExact4TermSuggestionsAndPages() {
-        final WileyApi.SearchOperation searchOperation = wileyApiClient.search().search().term(TERM);
+        final WileyApi.SearchOperation searchOperation = wileyApiClient.wileyApi().search().term(TERM);
         final SearchResp searchResp = searchOperation.executeAs(validatedWith(shouldBeCode(HttpStatus.SC_OK)));
         step("verify response is not empty", () -> {
             assertThat(searchResp, Matchers.notNullValue());
