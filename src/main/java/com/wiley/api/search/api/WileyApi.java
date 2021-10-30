@@ -23,7 +23,7 @@ public class WileyApi {
         this.reqSpecSupplier = reqSpecSupplier;
     }
 
-    public static WileyApi auth(Supplier<RequestSpecBuilder> reqSpecSupplier) {
+    public static WileyApi search(Supplier<RequestSpecBuilder> reqSpecSupplier) {
         return new WileyApi(reqSpecSupplier);
     }
 
@@ -60,14 +60,14 @@ public class WileyApi {
          */
         @Override
         public <T> T execute(Function<Response, T> handler) {
-            return handler.apply(RestAssured.given().spec(reqSpec.build()).expect().spec(respSpec.build()).when().request(REQ_METHOD, REQ_URI));
+            return handler.apply(RestAssured.given().spec(reqSpec.build()).log().all().expect().spec(respSpec.build()).log().all().when().request(REQ_METHOD, REQ_URI));
         }
 
         /**
          * GET /search/autocomplete/comp_00001H9J
          *
          * @param handler handler
-         * @return WebLoginRespResult
+         * @return SearchResp
          */
         public SearchResp executeAs(Function<Response, Response> handler) {
             Type type = new TypeToken<SearchResp>() {

@@ -28,7 +28,7 @@ public class ApiClient {
      * @return WileyApi
      */
     public WileyApi search() {
-        return WileyApi.auth(config.reqSpecSupplier);
+        return WileyApi.search(config.reqSpecSupplier);
     }
 
     /**
