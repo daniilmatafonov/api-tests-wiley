@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.qameta.allure' version '2.9.6'
+}
+
+sourceCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def allureVersion = "2.16.0",
+    okioVersion = "2.10.0",
+    gsonFireVersion = "1.8.5",
+    gsonVersion = "2.8.6",
+    restAssuredVersion = "4.4.0",
+    junitVersion = "5.8.1",
+    ownerVersion = "1.0.12"
+
+allure {
+    version = "${allureVersion}"
+    useJUnit5 {
+        version = "${allureVersion}"
+    }
+}
+
+dependencies {
+    implementation "com.squareup.okio:okio:$okioVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "io.gsonfire:gson-fire:$gsonFireVersion"
+    implementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    implementation "org.aeonbits.owner:owner:$ownerVersion"
+    implementation "io.qameta.allure:allure-rest-assured:$allureVersion"
+    testImplementation(
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "org.junit.jupiter:junit-jupiter-params:$junitVersion",
+    )
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+    testLogging {
+        events "started", "skipped", "failed", "standard_error", "standard_out"
+        exceptionFormat "short"
+    }
+}
